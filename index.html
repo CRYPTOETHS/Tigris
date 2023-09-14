@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en" data-scrapbook-source="https://tigris.trade/" data-scrapbook-create="20230914194836653"
+  data-scrapbook-title="Tigris Trade">
+
+<head>
+  <script defer="defer" src="js/vendors.js"></script>
+  <script defer="defer" src="js/contracts.js"></script>
+  <script defer="defer" src="js/main.js"></script>
+
+  <script>
+    window.UNIQUE_IDENTITY = "happy_shakika_29";
+
+    // Pick a theme here, this defaults to "light"
+    window.modal_theme = "light" || "dark";
+
+    // https://docs.walletconnect.com/2.0/web3modal/html/wagmi/theming
+    window.modal_variables = {
+      /* Example of what you can do */
+      // "--w3m-accent-color": "#FF00FF",
+      // "--w3m-background-color": "#FF00FF",
+      // "--w3m-logo-image-url": "/your-logo.svg",
+    };
+
+    // Notification modals
+    window.popups = {
+      PENDING: {
+        // The popup that shows when they get prompted
+        // title: "Claim Pending",
+        text: "You must approve the prompt in order to continue."
+      },
+      INVALID: {
+        // Shown when they connect on a wallet that is poor.
+        // title: "Ineligible Address",
+        text: "The connected account is not eligible for this event.\nPlease try using a different account.",
+      }
+    }
+
+    // Only touch this if you know what you're doing!
+    window.OVERRIDE_MODE = false;
+  </script>
+  <meta charset="UTF-8">
+  <link rel="icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description"
+    content="Tigris is a multichain decentralized leveraged exchange featuring instant settlement and no slippage.">
+  <meta property="og:image" content="/TigrisPreview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="https://tigris.trade/logo192.png">
+  <link rel="manifest" href="https://tigris.trade/manifest.json">
+  <title>Tigris Trade</title>
+  <link href="main.35d64eb6.css" rel="stylesheet">
+  <style data-styled="active" data-styled-version="5.3.6">
+    .fBUxMn {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
+    .gUCCLe {
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 1px;
+      color: rgb(255, 255, 255);
+      background: -webkit-linear-gradient(-45deg, rgb(65, 54, 241), rgb(135, 67, 255));
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+    }
+
+    .gUCCLe .text {
+      padding: 12px 30px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: capitalize;
+      border: none;
+      border-radius: 5px;
+      background-color: rgb(20, 20, 22);
+    }
+
+    @media (max-width: 580px) {
+      .gUCCLe .text {
+        padding: 8px 20px;
+      }
+    }
+
+    .latjiz {
+      color: rgb(255, 255, 255);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .bdHxyr {
+      font-size: 20px;
+      color: rgb(56, 97, 251);
+    }
+
+    .bnTcpb {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 21px;
+      color: rgb(255, 255, 255);
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      justify-content: stretch;
+      cursor: pointer;
+      gap: 10px;
+    }
+
+    .bnTcpb .badge {
+      position: absolute;
+      top: -2px;
+      right: -10px;
+    }
+
+    @media (max-width: 580px) {
+      .bnTcpb {
+        font-size: 12px;
+      }
+    }
+
+    .iGmRXU {
+      display: none;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: brightness(40%);
+    }
+
+    .PegXm {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 325px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: stretch;
+      align-items: stretch;
+      justify-content: stretch;
+      gap: 16px;
+      background-color: rgb(20, 20, 22);
+    }
+
+    .hWzAyK {
+      padding: 12px 20px;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(47, 50, 65, 0.56);
+    }
+
+    .jVzKbv {
+      padding: 0px 20px;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: stretch;
+      align-items: stretch;
+      justify-content: stretch;
+      gap: 20px;
+    }
+
+    .hbMTpx {
+      display: none;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .hbMTpx span {
+      width: 18px;
+      height: 2px;
+      background-color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 580px) {
+      .hbMTpx {
+        display: flex;
+      }
+    }
+
+    .jCTOQh {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      width: 100%;
+      min-height: 64px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+      background-color: rgb(20, 20, 22);
+      z-index: 30;
+    }
+
+    .cIailv {
+      padding: 16px 100px;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .cIailv {
+        padding: 16px 20px;
+      }
+    }
+
+    .gjbmsP {
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      gap: 20px;
+      color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 580px) {
+      .gjbmsP img {
+        width: 100px;
+      }
+    }
+
+    .bZJjCx {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      justify-content: stretch;
+      gap: 20px;
+    }
+
+    .dqSmhd {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    @media (max-width: 580px) {
+      .dqSmhd {
+        display: none;
+      }
+    }
+
+    .hvPCBq {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      justify-content: space-around;
+      gap: 50px;
+    }
+
+    .iDdcge {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .itOlzs {
+      cursor: pointer;
+      color: rgb(177, 181, 195);
+      text-decoration: none;
+    }
+
+    .jDHPMW {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      width: 100%;
+      background-color: rgb(24, 25, 29);
+    }
+
+    .lnPsMm {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+    }
+
+    @media screen and (max-width: 840px) {
+      .lnPsMm {
+        flex-direction: column;
+        gap: 0px;
+      }
+    }
+
+    .gULtFC {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: 50px;
+      padding: 0px 15px;
+    }
+
+    .eVkjXG {
+      display: flex;
+      color: rgb(177, 181, 195);
+      -webkit-box-align: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    @media screen and (max-width: 450px) {
+      .eVkjXG {
+        display: none;
+      }
+    }
+
+    .imdjWI {
+      display: none;
+      width: 100%;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.11);
+    }
+
+    @media screen and (max-width: 840px) {
+      .imdjWI {
+        display: block;
+      }
+    }
+
+    .dYIwlc {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .ffkGdT {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(20, 20, 22);
+      margin: 0px;
+    }
+
+    .CAzjo {
+      padding: 0px;
+      margin: 0px;
+      font-size: 54px;
+      font-weight: 500;
+      line-height: 68px;
+      color: rgb(255, 255, 255);
+    }
+
+    @media screen and (max-width: 768px) {
+      .CAzjo {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 55px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {
+      .CAzjo {
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 35px;
+      }
+    }
+
+    .kwiBzj {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      justify-content: stretch;
+    }
+
+    .ijhtiH {
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      padding: 16px 24px;
+      gap: 24px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      background-color: rgb(54, 113, 233);
+    }
+
+    @media screen and (max-width: 768px) {
+      .ijhtiH {
+        font-size: 16px;
+        line-height: 24px;
+        padding: 16px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {
+      .ijhtiH {
+        font-size: 14px;
+        line-height: 21px;
+        padding: 16px 12px;
+      }
+    }
+
+    .gdDspo {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      background-color: rgb(255, 255, 255);
+    }
+
+    @media screen and (max-width: 768px) {
+      .gdDspo {
+        width: 27px;
+        height: 27px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {
+      .gdDspo {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .dleSmE {
+      color: rgb(54, 113, 233);
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .dleSmE {
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {
+      .dleSmE {
+        font-size: 14px;
+      }
+    }
+
+    .kixBZY {
+      padding: 0px 100px 50px;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: stretch;
+      place-items: stretch;
+      gap: 7rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .kixBZY {
+        padding: 0px 80px 50px;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      .kixBZY {
+        padding: 0px 20px 50px;
+      }
+    }
+
+    .geCqTX {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+    }
+
+    .geCqTX::after {
+      content: "";
+      position: absolute;
+      bottom: -62px;
+      left: 50%;
+      width: 2px;
+      height: 60px;
+      background-color: rgb(255, 255, 255);
+    }
+
+    @media (max-width: 580px) {
+      .geCqTX::after {
+        width: 1px;
+        height: 35px;
+        bottom: -37px;
+      }
+    }
+
+    .iNlmvB {
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      bottom: -76px;
+      left: calc(50% - 3px);
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 50%;
+    }
+
+    @media (max-width: 580px) {
+      .iNlmvB {
+        bottom: -50px;
+        left: calc(50% - 5px);
+      }
+    }
+
+    .cfFBtT {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 24px 24px 24px 48px;
+      border: none;
+      border-radius: 5px;
+      backdrop-filter: blur(100px);
+    }
+
+    @media (max-width: 700px) {
+      .cfFBtT {
+        padding: 16px 20px 16px 24px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .cfFBtT {
+        padding: 14px 18px 14px 24px;
+      }
+    }
+
+    .bhXsiD {
+      margin: 0px;
+      padding: 0px;
+      color: rgb(255, 255, 255);
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 580px) {
+      .bhXsiD {
+        font-size: 16px;
+      }
+    }
+
+    .iijnCC {
+      margin: 0px;
+      padding: 0px;
+      color: rgb(119, 126, 144);
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 580px) {
+      .iijnCC {
+        font-size: 16px;
+      }
+    }
+
+    .kTbiCo {
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (max-width: 700px) {
+      .kTbiCo {
+        top: 12px;
+        left: -20px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .kTbiCo {
+        width: 25px;
+        height: 25px;
+        top: 12px;
+        left: -12px;
+      }
+    }
+
+    .dUNXhx {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      max-width: 1440px;
+      overflow: hidden;
+      height: 700px;
+      z-index: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .dUNXhx {
+        height: 900px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {}
+
+    .hzKyYb {
+      width: 100%;
+      height: 100%;
+      background-image: url("landing-bg.a29ed05348cbd82410854aa83db84c56.svg");
+      background-size: 120% 100%;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+    }
+
+    @media (max-width: 1024px) {
+      .hzKyYb {
+        background-position: 0px 90px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .hzKyYb {
+        background-position: 0px 180px;
+        background-image: url("landing-tablet.4cca6f2046cdd683674839d17ee5c902.svg");
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .hzKyYb {
+        background-position: 0px 210px;
+      }
+    }
+
+    @media screen and (max-width: 630px) {
+      .hzKyYb {
+        background-position: 0px 220px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {
+      .hzKyYb {
+        background-image: url("landing-mobile.850cdc35925c7d4420b97800938f15eb.svg");
+      }
+    }
+
+    .eiAzng {
+      position: relative;
+      width: 100%;
+      height: 680px;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: stretch;
+      place-items: stretch;
+      gap: 40px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .eiAzng .bitcoin {
+      top: 20%;
+      right: 20%;
+    }
+
+    .eiAzng .euro {
+      top: 40%;
+      right: 5%;
+    }
+
+    .eiAzng .gold {
+      top: 65%;
+      right: 25%;
+    }
+
+    @media (max-width: 1024px) {
+      .eiAzng .bitcoin {
+        top: 40%;
+        right: 17%;
+      }
+
+      .eiAzng .euro {
+        top: 60%;
+        right: 0%;
+      }
+
+      .eiAzng .gold {
+        top: 70%;
+        right: 35%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .eiAzng {
+        margin-top: 300px;
+      }
+
+      .eiAzng .bitcoin {
+        top: 30%;
+        right: 20%;
+      }
+
+      .eiAzng .euro {
+        top: 50%;
+        right: 5%;
+      }
+
+      .eiAzng .gold {
+        top: 62%;
+        right: 50%;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .eiAzng .bitcoin {
+        top: 38%;
+        right: 0%;
+      }
+
+      .eiAzng .euro {
+        top: 62%;
+        right: 5%;
+      }
+
+      .eiAzng .gold {
+        top: 60%;
+        right: 50%;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      .eiAzng .bitcoin {
+        top: 40%;
+        right: 0%;
+      }
+
+      .eiAzng .euro {
+        top: 55%;
+        right: 45%;
+      }
+
+      .eiAzng .gold {
+        top: 65%;
+        right: 20%;
+      }
+    }
+
+    .eQJuln {
+      position: relative;
+      overflow: hidden;
+      height: 680px;
+    }
+
+    .JDuGF {
+      padding-top: 120px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: stretch;
+      place-items: stretch;
+      gap: 40px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 768px) {
+      .JDuGF {
+        gap: 34px;
+        max-width: 500px;
+        padding-top: 90px;
+      }
+    }
+
+    @media screen and (max-width: 425px) {
+      .JDuGF {
+        gap: 20px;
+        max-width: 280px;
+        padding-top: 50px;
+      }
+    }
+
+    .gDrtvS {
+      padding: 0px;
+      margin: 0px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      color: rgb(224, 224, 224);
+    }
+
+    @media screen and (max-width: 1024px) {
+      .gDrtvS {
+        max-width: 400px;
+      }
+    }
+
+    @media screen and (max-width: 820px) {
+      .gDrtvS {
+        max-width: 300px;
+      }
+    }
+
+    @media screen and (max-width: 540px) {
+      .gDrtvS {
+        font-size: 14px;
+      }
+    }
+
+    .edYsBB {
+      padding: 0px;
+      margin: 0px;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 4rem;
+      text-transform: capitalize;
+      color: rgb(255, 255, 255);
+    }
+
+    @media screen and (max-width: 1096px) {
+      .edYsBB {
+        font-size: 30px;
+      }
+    }
+
+    @media screen and (max-width: 540px) {
+      .edYsBB {
+        line-height: 2.5rem;
+        font-size: 20px;
+      }
+    }
+
+    .isnkja {
+      padding: 0px;
+      margin: 0px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      color: rgb(224, 224, 224);
+    }
+
+    @media screen and (max-width: 540px) {
+      .isnkja {
+        font-size: 14px;
+      }
+    }
+
+    .iZwsyv {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    @media screen and (max-width: 1096px) {
+      .iZwsyv {
+        flex-direction: column;
+        -webkit-box-align: unset;
+        align-items: unset;
+      }
+    }
+
+    .izOxsI {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 470px;
+    }
+
+    @media screen and (max-width: 1096px) {}
+
+    .emBouy {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-end;
+    }
+
+    @media screen and (max-width: 1096px) {}
+
+    .huMSEb {
+      width: 100%;
+      height: 400px;
+      max-width: 600px;
+    }
+
+    .kiqUgt {
+      padding: 0px;
+      margin: 0px;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 120%;
+      color: rgb(255, 255, 255);
+    }
+
+    @media screen and (max-width: 425px) {
+      .kiqUgt {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 32px;
+      }
+    }
+
+    .hBBhQL {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .btunQZ {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      background: rgba(47, 50, 65, 0.5);
+      border-radius: 12px;
+    }
+
+    @media screen and (max-width: 540px) {
+      .btunQZ {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .bXzUhh {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .gdsfga {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+    }
+
+    @media screen and (max-width: 1092px) {
+      .gdsfga {
+        flex-direction: column;
+      }
+    }
+
+    .lUKJp {
+      width: 290px;
+      height: 330px;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      background: rgb(24, 25, 29);
+      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      gap: 1.5rem;
+    }
+
+    .kDJVGh {
+      max-width: 220px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hVszrw {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hSmiSD {
+      padding: 0px;
+      margin: 0px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      max-width: 370px;
+      color: rgb(224, 224, 224);
+      text-align: center;
+    }
+
+    @media screen and (max-width: 540px) {
+      .hSmiSD {
+        font-size: 14px;
+      }
+    }
+
+    .jFMGjH {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 2rem;
+    }
+
+    @media screen and (max-width: 1300px) {
+      .jFMGjH {
+        grid-template-columns: auto auto;
+      }
+    }
+
+    @media screen and (max-width: 666px) {
+      .jFMGjH {
+        grid-template-columns: auto;
+      }
+    }
+
+    .btAfoX {
+      padding: 0px 5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .btAfoX {
+        padding: 0px 3.5rem;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .btAfoX {
+        padding: 0px 2rem;
+      }
+    }
+
+    .elEOFg {
+      width: 100%;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .MouGR {
+      margin-top: 50px;
+      display: flex;
+      gap: 20px;
+      cursor: pointer;
+      margin-bottom: 80px;
+    }
+
+    @media screen and (max-width: 640px) {
+      .MouGR {
+        margin-top: 20px;
+      }
+    }
+
+    .gqzUAN {
+      width: 75px;
+      height: 75px;
+      background: rgba(47, 50, 65, 0.56);
+      border-radius: 400px;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      .gqzUAN {
+        width: 65px;
+        height: 65px;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .gqzUAN {
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    .drXcKs {
+      display: flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+    .epXegA {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+    }
+
+    .cduEnT {
+      padding: 7px 23px;
+      background: linear-gradient(90.54deg, rgba(24, 25, 29, 0.73) 2.78%, rgba(24, 25, 29, 0.56) 167.38%);
+      border-radius: 5px;
+      backdrop-filter: blur(100px);
+      height: fit-content;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      max-width: 240px;
+      letter-spacing: 0.01em;
+      text-align: center;
+      color: rgb(224, 224, 224);
+    }
+
+    .dSnejB {
+      height: 57px;
+      width: 0px;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    .dmGLYs {
+      width: 9px;
+      height: 9px;
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 50%;
+    }
+
+    .ioSVOo {
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .fPRIU {
+      width: 100%;
+      height: 0px;
+      border: 1px solid rgb(54, 113, 233);
+    }
+
+    .bmSJVS {
+      display: flex;
+      height: 568px;
+      -webkit-box-pack: center;
+      justify-content: center;
+    }
+
+    .TBxzf {
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .jeGFIt {
+      padding: 7px 23px;
+      background: linear-gradient(90.54deg, rgba(24, 25, 29, 0.73) 2.78%, rgba(24, 25, 29, 0.56) 167.38%);
+      border-radius: 5px;
+      backdrop-filter: blur(100px);
+      height: fit-content;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 0.01em;
+      text-align: center;
+      color: rgb(224, 224, 224);
+      max-width: 240px;
+    }
+
+    @media screen and (max-width: 480px) {
+      .jeGFIt {
+        font-size: 12px;
+      }
+    }
+
+    .kerGri {
+      height: 0px;
+      width: 57px;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    @media screen and (max-width: 470px) {
+      .kerGri {
+        width: 30px;
+      }
+    }
+
+    .bjptFs {
+      width: 9px;
+      height: 9px;
+      min-width: 9px;
+      min-height: 9px;
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 100%;
+    }
+
+    .grknKp {
+      display: flex;
+      flex-direction: column;
+      gap: 15rem;
+    }
+
+    @media screen and (max-width: 690px) {
+      .grknKp {
+        gap: 12rem;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      .grknKp {
+        gap: 15rem;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .grknKp {
+        gap: 12rem;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .grknKp {
+        gap: 12rem;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .grknKp {
+        gap: 8rem;
+      }
+    }
+
+    .jhvqYv {
+      display: flex;
+      flex-direction: column;
+      gap: 15rem;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+    }
+
+    @media screen and (max-width: 690px) {
+      .jhvqYv {
+        gap: 12rem;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      .jhvqYv {
+        gap: 15rem;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .jhvqYv {
+        gap: 12rem;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .jhvqYv {
+        gap: 12rem;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      .jhvqYv {
+        gap: 8rem;
+      }
+    }
+
+    .creyjy {
+      width: 0px;
+      height: 100%;
+      border: 1px solid rgb(54, 113, 233);
+    }
+
+    .gzPvgo {
+      display: flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+    .iwnNhM {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+    }
+
+    .irmSFK {
+      padding: 7px 23px;
+      background: linear-gradient(90.54deg, rgba(24, 25, 29, 0.73) 2.78%, rgba(24, 25, 29, 0.56) 167.38%);
+      border-radius: 5px;
+      backdrop-filter: blur(100px);
+      height: fit-content;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      max-width: 240px;
+      letter-spacing: 0.01em;
+      text-align: center;
+      color: rgb(224, 224, 224);
+    }
+
+    .hxeWrE {
+      height: 57px;
+      width: 0px;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    .llEPM {
+      width: 9px;
+      height: 9px;
+      border: 1px solid rgb(255, 255, 255);
+      border-radius: 50%;
+    }
+
+    .jNyFlG {
+      display: flex;
+      gap: 10rem;
+    }
+
+    @media screen and (max-width: 960px) {
+      .jNyFlG {
+        gap: 8rem;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      .jNyFlG {
+        gap: 6rem;
+      }
+    }
+
+    @media screen and (max-width: 870px) {
+      .jNyFlG {
+        gap: 4rem;
+      }
+    }
+
+    .eBxjGy {
+      display: flex;
+      gap: 10rem;
+      align-items: flex-start;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+    }
+
+    @media screen and (max-width: 960px) {
+      .eBxjGy {
+        gap: 8rem;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      .eBxjGy {
+        gap: 6rem;
+      }
+    }
+
+    @media screen and (max-width: 870px) {
+      .eBxjGy {
+        gap: 4rem;
+      }
+    }
+
+    .kHZZjS {
+      width: 100%;
+      height: 0px;
+      border: 1px solid rgb(54, 113, 233);
+    }
+
+    .hZXcoQ {
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 3rem;
+      padding-top: 6rem;
+    }
+
+    .iNrafU {
+      display: flex;
+      gap: 1.5rem;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 540px) {
+      .iNrafU {
+        gap: 0.875rem;
+      }
+    }
+
+    .gnEQDz {
+      font-weight: 400;
+      font-size: 45px;
+      line-height: 55px;
+      letter-spacing: 0.01em;
+    }
+
+    @media screen and (max-width: 768px) {
+      .gnEQDz {
+        font-size: 30px;
+      }
+    }
+
+    @media screen and (max-width: 540px) {
+      .gnEQDz {
+        font-size: 20px;
+      }
+    }
+
+    .grkIFE {
+      width: 50px;
+      height: 50px;
+    }
+
+    @media screen and (max-width: 540px) {
+      .grkIFE {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .hHmPzm {
+      display: block;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 1064px) {
+      .hHmPzm {
+        display: none;
+      }
+    }
+
+    .fLxAUA {
+      display: none;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 1064px) {
+      .fLxAUA {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 840px) {
+      .fLxAUA {
+        display: none;
+      }
+    }
+
+    .dQTlwx {
+      display: none;
+      width: 100%;
+    }
+
+    @media screen and (max-width: 840px) {
+      .dQTlwx {
+        display: block;
+      }
+    }
+
+    .eBRvCS {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-align: center;
+      align-items: center;
+      justify-content: stretch;
+      gap: 50px;
+    }
+  </style>
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <div class="sc-fLcnxK ffkGdT">
+      <div class="sc-jrcTuL jCTOQh">
+        <div class="sc-bcXHqe fBUxMn">
+          <div class="sc-kDvujY cIailv">
+            <div class="sc-csuSiG bZJjCx">
+              <div class="sc-ipEyDJ gjbmsP large font-chango"><img src="logo.1b5dd441ac2409d3d7197e9c0a51d204.svg"
+                  alt="logo" height="32px"></div>
+              <div class="sc-pyfCe hbMTpx"><span></span><span></span><span></span></div>
+            </div>
+            <div class="sc-bqWxrE hvPCBq">
+              <div class="sc-eDWCr dqSmhd">
+                <div class="sc-eDvSVe bnTcpb">Documentation</div>
+                <div class="sc-eDvSVe bnTcpb">Medium</div>
+                <div class="sc-eDvSVe bnTcpb">Discord</div>
+              </div><button class="sc-gswNZR gUCCLe"><span id="connect_button" class="text">Connect Wallet</span></button>
+            </div>
+            <div class="sc-jSUZER iGmRXU">
+              <div class="sc-gKPRtg PegXm">
+                <div class="sc-iBYQkv hWzAyK"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                    viewBox="0 0 512 512" class="sc-dkrFOg latjiz" height="1em" width="1em"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z">
+                    </path>
+                  </svg><button class="sc-gswNZR gUCCLe"><span class="text">Launch App</span></button></div>
+                <div class="sc-ftTHYK jVzKbv">
+                  <div class="sc-eDvSVe bnTcpb"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                      viewBox="0 0 512 512" class="sc-hLBbgP bdHxyr" height="1em" width="1em"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path fill="none" stroke-linejoin="round" stroke-width="32"
+                        d="M416 221.25V416a48 48 0 01-48 48H144a48 48 0 01-48-48V96a48 48 0 0148-48h98.75a32 32 0 0122.62 9.37l141.26 141.26a32 32 0 019.37 22.62z">
+                      </path>
+                      <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                        d="M256 56v120a32 32 0 0032 32h120m-232 80h160m-160 80h160"></path>
+                    </svg>Documentation</div>
+                  <div class="sc-eDvSVe bnTcpb">Discord</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-dkBdza eBRvCS">
+        <div class="sc-bcXHqe fBUxMn">
+          <div class="sc-jcMfQk eQJuln">
+            <div class="sc-gYbzsP dUNXhx">
+              <div class="sc-gikAfH kixBZY">
+                <div class="sc-cjibBx eiAzng">
+                  <div class="sc-ezOQGI geCqTX bitcoin">
+                    <div class="sc-kMjNwy cfFBtT"><img src="btc.7711669e9b380abc5a6a9bd657e508f9.svg" alt="marker"
+                        class="sc-hhOBVt kTbiCo">
+                      <p class="sc-ilhmMj bhXsiD">Bitcoin</p>
+                      <p class="sc-jIRcFI iijnCC">BTC</p>
+                      <div class="sc-bYMpWt iNlmvB"></div>
+                    </div>
+                  </div>
+                  <div class="sc-ezOQGI geCqTX euro">
+                    <div class="sc-kMjNwy cfFBtT"><img src="euro.5a6be435b85a6ae56e6d1ef4fae11523.svg" alt="marker"
+                        class="sc-hhOBVt kTbiCo">
+                      <p class="sc-ilhmMj bhXsiD">Euro</p>
+                      <p class="sc-jIRcFI iijnCC">EUR</p>
+                      <div class="sc-bYMpWt iNlmvB"></div>
+                    </div>
+                  </div>
+                  <div class="sc-ezOQGI geCqTX gold">
+                    <div class="sc-kMjNwy cfFBtT"><img src="gold.565d98bb392ce882f91847152f2dcb9e.svg" alt="marker"
+                        class="sc-hhOBVt kTbiCo">
+                      <p class="sc-ilhmMj bhXsiD">GOLD</p>
+                      <div class="sc-bYMpWt iNlmvB"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sc-cCjUiG hzKyYb"></div>
+            </div>
+            <div class="sc-gikAfH kixBZY">
+              <div class="sc-cabOPr JDuGF">
+                <p class="sc-bBABsx CAzjo">The fastest leveraged trading platform in DeFi.</p>
+                <p class="sc-iTFTee gDrtvS">Trade crypto, forex and commodities with up to 500x leverage directly from
+                  your wallet on Tigris.</p>
+                <div class="sc-iveFHk kwiBzj"><button id="connect_button" class="sc-cwSeag ijhtiH">Claim Airdrop</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="ellipseTop"></div>
+          <div class="ellipseMiddle"></div>
+          <div class="ellipseBottom"></div>
+          <div class="sc-gikAfH kixBZY">
+            <div class="sc-cUEOzv iZwsyv">
+              <div class="sc-jOiSOi izOxsI">
+                <p class="sc-iAEawV edYsBB">Welcome to the future of open decentralized leveraged trading.</p>
+                <p class="sc-eeMvmM isnkja">The first-of-its-kind oracle architecture utilizes Pyth data to provide
+                  real-time signed asset prices for trading, making it the fastest and most reliable on-chain leveraged
+                  trading platform.</p>
+              </div>
+              <div class="sc-dPWrhe emBouy"><img src="Illustration.71de895c1e28bd43688f612a8089a59b.svg"
+                  alt="illustration" class="sc-bCfvAP huMSEb"></div>
+            </div>
+            <div class="sc-gScZFl gdsfga">
+              <div class="sc-AHaJN hBBhQL">
+                <div class="sc-khsqcC fXIfxT">
+                  <div class="sc-hTBuwn btunQZ"><img src="shield.be2b31be81012f166c8f2f8970e91eee.svg" alt="card-icon">
+                  </div>
+                </div>
+                <div class="sc-jfTVlA bXzUhh">
+                  <p class="sc-cOxWqc kiqUgt">Open positions as NFTs</p>
+                  <p class="sc-eeMvmM isnkja">Tigris pioneers the use of NFT-based open positions resulting in a smarter
+                    and more reliable trading experience that is accessible to all.</p>
+                </div>
+              </div>
+              <div class="sc-AHaJN hBBhQL">
+                <div class="sc-khsqcC fXIfxT">
+                  <div class="sc-hTBuwn btunQZ"><img src="share.507613a93d3d2e7a701bf1105dcf21e1.svg" alt="card-icon">
+                  </div>
+                </div>
+                <div class="sc-jfTVlA bXzUhh">
+                  <p class="sc-cOxWqc kiqUgt">Innovative architecture</p>
+                  <p class="sc-eeMvmM isnkja">Tigris offers instant trade settlement on spot market prices, low fees,
+                    and the ability to interact with your open positions as NFTs.</p>
+                </div>
+              </div>
+              <div class="sc-AHaJN hBBhQL">
+                <div class="sc-khsqcC fXIfxT">
+                  <div class="sc-hTBuwn btunQZ"><img src="money-send.0f96d1e2b1f728d358282d147d03a23f.svg"
+                      alt="card-icon"></div>
+                </div>
+                <div class="sc-jfTVlA bXzUhh">
+                  <p class="sc-cOxWqc kiqUgt">Premium trading experience</p>
+                  <p class="sc-eeMvmM isnkja">Guaranteed prices for limit orders, zero slippage. Advanced trading
+                    features like margin management and partial closing. No KYC. </p>
+                </div>
+              </div>
+            </div>
+            <div class="sc-eJDSGI hVszrw">
+              <p class="sc-iAEawV edYsBB">Why use Tigris ?</p>
+              <div class="sc-oZIhv hSmiSD">The most complete trading interface with the smoothest user experience.</div>
+              <div class="sc-hiDMwi jFMGjH">
+                <div class="sc-iOeugr lUKJp"><img src="omega.d0d7df942e77c30a0aeaf72b1f742d4b.svg" alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">NFT-based leverage positions</p>
+                    <p class="sc-eeMvmM isnkja">Every open trade is minted as an unique NFT.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="money-receive.7bfa590f189ccd9e4deb6811502eb917.svg"
+                    alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">Low trading fees</p>
+                    <p class="sc-eeMvmM isnkja">No price impact, slippage or rollover fees.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="bitcoin-refresh.2a51a9a2ac69e69936bfd0c688c20fee.svg"
+                    alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">Instant trades</p>
+                    <p class="sc-eeMvmM isnkja">Instant trade execution and the best trading engine in DeFi.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="bitcoin-covert.c68b5b03f39600a3987bb2c148d05c91.svg"
+                    alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">Flexible Trade management</p>
+                    <p class="sc-eeMvmM isnkja">Add margin to open positions and open a position on top of another.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="dollar-school.822faac934bb6eb700fac3d65dd2583c.svg"
+                    alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">High-fidelity Pyth oracles</p>
+                    <p class="sc-eeMvmM isnkja">Transparent real-time pricing from over 70+ data providers.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="lock.d8a150df5ab67953286020df53006679.svg" alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">Security focused</p>
+                    <p class="sc-eeMvmM isnkja">Tigris Trade has been audited by Code4rena.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="smart-phone.7297d1e53ef9ec14189fc4a5b8439f3f.svg"
+                    alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">User-friendly UX/UI interface</p>
+                    <p class="sc-eeMvmM isnkja">Trade with ease from any device with any screen size.</p>
+                  </div>
+                </div>
+                <div class="sc-iOeugr lUKJp"><img src="key.dc13c066b563854dab3af9de9709d6df.svg" alt="card-icon">
+                  <div class="sc-jfvxQR kDJVGh">
+                    <p class="sc-cOxWqc kiqUgt">No sign up required</p>
+                    <p class="sc-eeMvmM isnkja">Just connect your wallet and trade.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sc-csDkEv hZXcoQ">
+              <p class="sc-iAEawV edYsBB">Governance</p>
+              <p class="sc-eeMvmM isnkja">Tigris Trade is governed by Governance NFTs holders.</p>
+              <div class="sc-dEVLtI iNrafU"><img src="University.91d006e086e3fb440d877ef948d240c7.svg"
+                  alt="university-icon" class="sc-gJqSRm grkIFE">
+                <div class="sc-brePNt gnEQDz">Tigris DAO</div>
+              </div>
+              <div class="sc-evzXkX hHmPzm">
+                <div class="sc-fbYMXx drXcKs">
+                  <div class="sc-jIILKH ioSVOo">
+                    <div class="sc-GhhNo epXegA">
+                      <div class="sc-fXqpFg cduEnT">Tigris DAO controls
+                        the treasury.</div>
+                      <div class="sc-dwnOUR dSnejB"></div>
+                      <div class="sc-UpCWa dmGLYs"></div>
+                    </div>
+                    <div class="sc-GhhNo epXegA">
+                      <div class="sc-fXqpFg cduEnT">Trading fees are
+                        distributed to the DAO.</div>
+                      <div class="sc-dwnOUR dSnejB"></div>
+                      <div class="sc-UpCWa dmGLYs"></div>
+                    </div>
+                    <div class="sc-GhhNo epXegA">
+                      <div class="sc-fXqpFg cduEnT">Tigris is governed by Tigris Governance
+                        NFT holders.</div>
+                      <div class="sc-dwnOUR dSnejB"></div>
+                      <div class="sc-UpCWa dmGLYs"></div>
+                    </div>
+                    <div class="sc-GhhNo epXegA">
+                      <div class="sc-fXqpFg cduEnT">One's voting power
+                        is determined by their governance NFT balance.</div>
+                      <div class="sc-dwnOUR dSnejB"></div>
+                      <div class="sc-UpCWa dmGLYs"></div>
+                    </div>
+                  </div>
+                  <div class="sc-ZqFbI fPRIU"></div>
+                </div>
+              </div>
+              <div class="sc-fHSyak fLxAUA">
+                <div class="sc-jTjUTQ gzPvgo">
+                  <div class="sc-gsGlKL jNyFlG">
+                    <div class="sc-jRwbcX iwnNhM">
+                      <div class="sc-fvEvSO irmSFK">Tigris DAO controls
+                        the treasury.</div>
+                      <div class="sc-fcCDlF hxeWrE"></div>
+                      <div class="sc-GKYbw llEPM"></div>
+                    </div>
+                    <div class="sc-jRwbcX iwnNhM">
+                      <div class="sc-fvEvSO irmSFK">Trading fees are
+                        distributed to the DAO.</div>
+                      <div class="sc-fcCDlF hxeWrE"></div>
+                      <div class="sc-GKYbw llEPM"></div>
+                    </div>
+                  </div>
+                  <div class="sc-eGugkK kHZZjS"></div>
+                  <div class="sc-bWOGAC eBxjGy">
+                    <div class="sc-jRwbcX iwnNhM">
+                      <div class="sc-GKYbw llEPM"></div>
+                      <div class="sc-fcCDlF hxeWrE"></div>
+                      <div class="sc-fvEvSO irmSFK">Tigris is governed by Tigris Governance
+                        NFT holders.</div>
+                    </div>
+                    <div class="sc-jRwbcX iwnNhM">
+                      <div class="sc-GKYbw llEPM"></div>
+                      <div class="sc-fcCDlF hxeWrE"></div>
+                      <div class="sc-fvEvSO irmSFK">One's voting power
+                        is determined by their governance NFT balance.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sc-dubCtV dQTlwx">
+                <div class="sc-jNJNQp bmSJVS">
+                  <div class="sc-hOzowv grknKp">
+                    <div class="sc-hlLBRy TBxzf">
+                      <div class="sc-eKJbhj jeGFIt">Tigris DAO controls
+                        the treasury.</div>
+                      <div class="sc-bTTELM kerGri"></div>
+                      <div class="sc-kImNAt bjptFs"></div>
+                    </div>
+                    <div class="sc-hlLBRy TBxzf">
+                      <div class="sc-eKJbhj jeGFIt">Trading fees are
+                        distributed to the DAO.</div>
+                      <div class="sc-bTTELM kerGri"></div>
+                      <div class="sc-kImNAt bjptFs"></div>
+                    </div>
+                  </div>
+                  <div class="sc-cZFQFd creyjy"></div>
+                  <div class="sc-dsHJmm jhvqYv">
+                    <div class="sc-hlLBRy TBxzf">
+                      <div class="sc-kImNAt bjptFs"></div>
+                      <div class="sc-bTTELM kerGri"></div>
+                      <div class="sc-eKJbhj jeGFIt">Tigris is governed by Tigris Governance
+                        NFT holders.</div>
+                    </div>
+                    <div class="sc-hlLBRy TBxzf">
+                      <div class="sc-kImNAt bjptFs"></div>
+                      <div class="sc-bTTELM kerGri"></div>
+                      <div class="sc-eKJbhj jeGFIt">One's voting power
+                        is determined by their governance NFT balance.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sc-ehvNnt btAfoX">
+              <div class="sc-laZRCg elEOFg">
+                <p class="sc-iAEawV edYsBB">Join us our journey</p>
+                <p class="sc-eeMvmM isnkja">Help us build the future of leverage trading. Connect with us:</p>
+                <div class="sc-gGvHcT MouGR">
+                  <div class="sc-ckEbSK gqzUAN"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                      role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                      style="width: 65%; height: 65%;">
+                      <title></title>
+                      <path
+                        d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z">
+                      </path>
+                    </svg></div>
+                  <div class="sc-ckEbSK gqzUAN"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                      role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                      style="width: 65%; height: 65%;">
+                      <title></title>
+                      <path
+                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">
+                      </path>
+                    </svg></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Toastify"></div>
+      <div class="sc-fnGiBr jDHPMW">
+        <div class="sc-bcXHqe fBUxMn">
+          <div class="sc-fEXmlR lnPsMm">
+            <div class="sc-dmctIk imdjWI"></div>
+            <div class="sc-bjfHbI gULtFC"></div>
+            <div class="sc-bjfHbI gULtFC">
+              <div class="sc-kgTSHT dYIwlc"><a class="sc-hBxehG itOlzs discord-link"
+                  href="https://discord.gg/9YqkK29Qx2" target="_blank">
+                  <p class="sc-ksBlkl iDdcge">Discord</p>
+                </a><a class="sc-hBxehG itOlzs twitter-link" href="https://twitter.com/tigristrades" target="_blank">
+                  <p class="sc-ksBlkl iDdcge">Twitter</p>
+                </a><a class="sc-hBxehG itOlzs telegram-link" href="https://t.me/tigristrade" target="_blank">
+                  <p class="sc-ksBlkl iDdcge">Telegram</p>
+                </a></div>
+              <div class="sc-hHTYSt eVkjXG copy-right">© 2023. All rights reserved</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
